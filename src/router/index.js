@@ -3,9 +3,10 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
 const CursoIndex = () =>  import('../views/cursos/index')
-import FormCurso from '../views/cursos/formcurso'
+import novoCurso from '../views/cursos/novoCurso'
 import ListarCursos from '../views/cursos/listar';
 import Curso from '../views/cursos/curso'
+import EditarCurso from '../views/cursos/editarCurso'
 
 Vue.use(VueRouter)
 
@@ -20,10 +21,10 @@ const routes = [
     name: 'cursos',
     component: CursoIndex,  
     children: [
-      { path: 'novo', name: 'novoCurso',  component: FormCurso },
+      { path: 'novo', name: 'novoCurso',  component: novoCurso },
       { path: 'lista', name: 'listarCursos',  component: ListarCursos },
       { path: ':id', name: 'visualizarCurso',  component: Curso, props: true },
-      { path: ':id/editar', name: 'editarCurso',  component: Curso, props: true }
+      { path: ':id/editar', name: 'editarCurso',  component: EditarCurso, props: true }
     ]
   },
   {

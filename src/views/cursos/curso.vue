@@ -19,6 +19,8 @@
                 <b-row class="mt-4">
                 <b-col><strong>Valor</strong>: {{ curso.valor | formatReal }}</b-col>
             </b-row>
+            <br>
+            <b-button variant="primary"  @click="$router.push({name: 'editarCurso', ṕarams:{id}})">Editar</b-button>
         </b-container>
     </div>
 </template>
@@ -30,20 +32,16 @@ export default {
             default: 0
         }
     },
-    data(){
-        return {
-            curso: {}
-        }
-    },
     computed: {
         cursos() {
             return this.$store.getters.todosCursos;
+        },
+        curso() {
+            return this.$store.getters.cursoId(this.id);
         }
     },
     created(){
         if(!this.cursos.length || !this.id) this.$router.push({ name: 'listarCursos' });
-        let curso = this.cursos.filter(curso => curso.id == this.id);
-        this.curso = curso[0];
     }
 }
 </script>
