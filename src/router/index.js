@@ -19,7 +19,10 @@ const routes = [
   {
     path: '/cursos',
     name: 'cursos',
-    component: CursoIndex,  
+    component: CursoIndex,
+    redirect: {
+      name: 'listarCursos'
+    },  
     children: [
       { path: 'novo', name: 'novoCurso',  component: novoCurso },
       { path: 'lista', name: 'listarCursos',  component: ListarCursos },

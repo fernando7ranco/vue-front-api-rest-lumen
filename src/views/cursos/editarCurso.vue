@@ -2,7 +2,7 @@
     <b-container>
         <h3>Editar dados do curso {{ id | formatCodigo }}</h3>
         
-        <FormCurso  @limpa-curso="limpaCurso" :curso="curso" :request="request" />
+        <FormCurso @limpa-curso="limpaCurso" :curso="curso" :request="request" />
         <br><br>
         <b-alert variant="success" dismissible fade :show="formSubtidoComSucesso">
             Curso editado com sucesso 
@@ -57,6 +57,7 @@ export default {
         }
     },
     created(){
+        console.log('novo curso')
         if(!this.cursos.length || !this.id) this.$router.push({ name: 'listarCursos' });
         this.curso = this.$store.getters.cursoId(this.id);
         this.cursoOriginal = {...this.curso};
