@@ -22,6 +22,9 @@
             <br>
             <b-button variant="primary"  @click="$router.push({name: 'editarCurso', ṕarams:{id}})">Editar</b-button>
             <b-button variant="danger" v-b-modal.modal-excluir class="ml-4">Excluir</b-button>
+
+            <AlunosCurso :cursoId="id" />
+
         </b-container>
 
         <div>
@@ -38,11 +41,16 @@
 </template>
 
 <script>
+import AlunosCurso from './alunosCurso'
+
 export default {
     props: {
         id:{
             default: 0
         }
+    },
+    components:{
+        AlunosCurso
     },
     data(){
         return {
